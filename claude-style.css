@@ -1,0 +1,498 @@
+/* ════════════════════════════════════════════════════════════
+   클로드 스타일 옵시디언  ·  Claude Style for Obsidian
+   by 오후다섯씨 (MR_5PM)  ·  평생 무료
+
+   매일 들여다보는 메모장을, 클로드 그 느낌으로.
+   고딕체 본문 · 넓은 자간/줄간격 · 가운데 정렬 ·
+   테두리 없는 깔끔한 표 · 테라코타 형광펜(==)
+
+   ── 30초 설치 ──────────────────────────────────────────────
+   1. 옵시디언 → 설정(Settings)
+   2. 외형(Appearance) 탭
+   3. 맨 아래 'CSS 스니펫'에서 [폴더 열기] 클릭
+   4. 열린 폴더에 이 파일(claude-style.css)을 그대로 넣기
+   5. 옆의 [새로고침] 한 번
+   6. 목록에 뜨면 토글 ON — 끝!
+
+   ※ 폰트: 본문은 '북크고딕'(부크크 무료 폰트) 기준입니다.
+     없으면 기본 명조로 표시되고, 설치하면 영상과 똑같아집니다.
+
+   ── 내 맘대로 고치기 ───────────────────────────────────────
+   마음에 안 드는 부분은 AI한테 말로 고치세요.
+   "자간 좀 더 넓혀줘" · "폰트 고딕으로 바꿔줘" · "강조색 파랑으로"
+   캡처 한 장 던지면 클로드가 CSS를 바로 고쳐줍니다. 코드 몰라도 OK.
+
+   더 많은 무료 키트 ▸ mr5pm.com/tutorials/claude-style-obsidian
+   ════════════════════════════════════════════════════════════ */
+
+/* ============================================
+   Claude Style for Obsidian
+   Clean & Simple
+   ============================================ */
+
+/* 본문 - 명조 */
+body {
+  --font-text: "Bookk Gothic", "북크고딕", "맑은 고딕", sans-serif;
+  --font-monospace: "SF Mono", "Monaco", "Menlo", monospace;
+  --font-size: 16px;
+  --background-primary: #1a1a1a !important;
+  --background-secondary: #1e1e1e !important;
+  --background-primary-alt: #1e1e1e !important;
+}
+
+.markdown-preview-view,
+.markdown-reading-view,
+.cm-s-obsidian {
+  font-family: var(--font-text) !important;
+  font-size: var(--font-size) !important;
+  line-height: 2 !important;
+  letter-spacing: 0.06em !important;
+  word-spacing: 0.05em !important;
+}
+
+/* ============================================
+   콘텐츠 가운데 정렬 (Claude 스타일)
+   ============================================ */
+
+/* Reading Mode Sizer */
+.markdown-preview-sizer,
+/* Live Preview Sizer */
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer {
+  max-width: 720px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  box-sizing: border-box !important;
+}
+
+/* Reset Wrapper Width */
+.markdown-preview-view,
+.markdown-reading-view {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* ============================================
+   단락 간격
+   ============================================ */
+
+p,
+.markdown-source-view.mod-cm6
+  .cm-line:not(.HyperMD-codeblock):not(.HyperMD-list-line):not(
+    .HyperMD-quote
+  ):not(.HyperMD-header) {
+  line-height: 2 !important;
+  letter-spacing: 0.06em !important;
+  padding-bottom: 0em !important;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock,
+.markdown-source-view.mod-cm6 .HyperMD-quote {
+  margin-bottom: 0em !important;
+  line-height: 1.6 !important;
+  padding-bottom: 0em !important;
+  padding-top: 0em !important;
+}
+
+/* 에딧 모드 코드블록 — 뷰어 pre와 동일 */
+.markdown-source-view.mod-cm6 .HyperMD-codeblock {
+  font-family: var(--font-monospace) !important;
+  font-size: 13px !important;
+}
+
+/* 에딧 모드 인용문 — 뷰어 blockquote와 동일 */
+.markdown-source-view.mod-cm6 .HyperMD-quote .cm-quote {
+  font-family: "Bookk Gothic", "북크고딕", sans-serif !important;
+  font-size: 15px !important;
+  color: #888 !important;
+  font-style: normal !important;
+}
+
+/* 에딧 모드 인라인 코드 — 뷰어 code와 동일 */
+.cm-s-obsidian .cm-inline-code:not(.cm-formatting) {
+  font-family: var(--font-monospace) !important;
+  font-size: 14px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  padding: 3px 7px !important;
+  border-radius: 4px !important;
+  color: #bbb !important;
+}
+
+/* Fix for lists inside callouts/quotes causing stripes */
+.markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-quote {
+  margin-bottom: 0em !important;
+  padding-top: 0em !important;
+  line-height: 1.6 !important;
+}
+
+/* ============================================
+   제목 - 한 단계씩 축소
+   ============================================ */
+
+h1 {
+  font-family: var(--font-text) !important;
+  font-size: 1.3em !important;
+  font-weight: 600 !important;
+  margin-top: 2em !important;
+  margin-bottom: 1em !important;
+}
+.markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  font-family: var(--font-text) !important;
+  font-size: 1.3em !important;
+  font-weight: 600 !important;
+  margin-top: 2em !important;
+  margin-bottom: 0em !important;
+}
+
+h2 {
+  font-family: var(--font-text) !important;
+  font-size: 1.2em !important;
+  font-weight: 500 !important;
+  margin-top: 0.8em !important;
+  margin-bottom: 0.3em !important;
+}
+.markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  font-family: var(--font-text) !important;
+  font-size: 1.2em !important;
+  font-weight: 500 !important;
+  margin-top: 0.8em !important;
+  margin-bottom: 0em !important;
+}
+
+h3 {
+  font-family: "Bookk Gothic", "북크고딕", sans-serif !important;
+  font-size: 1.1em !important;
+  font-weight: 500 !important;
+  margin-top: 0.8em !important;
+  margin-bottom: 0.2em !important;
+}
+.markdown-source-view.mod-cm6 .HyperMD-header-3 {
+  font-family: "Bookk Gothic", "북크고딕", sans-serif !important;
+  font-size: 1.1em !important;
+  font-weight: 500 !important;
+  margin-top: 0.8em !important;
+  margin-bottom: 0em !important;
+}
+
+h4 {
+  font-family: "Bookk Gothic", "북크고딕", sans-serif !important;
+  font-size: 1.1em !important;
+  font-weight: 500 !important;
+  margin-top: 0.3em !important;
+  margin-bottom: 0.1em !important;
+}
+.markdown-source-view.mod-cm6 .HyperMD-header-4 {
+  font-family: "Bookk Gothic", "북크고딕", sans-serif !important;
+  font-size: 1.1em !important;
+  font-weight: 500 !important;
+  margin-top: 0.3em !important;
+  margin-bottom: 0em !important;
+}
+
+h5,
+h6,
+.markdown-source-view.mod-cm6 .HyperMD-header-5,
+.markdown-source-view.mod-cm6 .HyperMD-header-6 {
+  font-family: "Bookk Gothic", "북크고딕", sans-serif !important;
+  font-size: 1em !important;
+  font-weight: 500 !important;
+  margin-top: 1em !important;
+  margin-bottom: 0.5em !important;
+}
+
+/* ============================================
+   리스트 - 넓은 줄간격
+   ============================================ */
+
+ul,
+ol {
+  margin: 1.5em 0 !important;
+  padding-left: 2em !important;
+}
+
+li,
+.markdown-source-view.mod-cm6 .HyperMD-list-line {
+  margin-bottom: 0.4em !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.06em !important;
+  padding-top: 0em !important;
+}
+
+li li {
+  margin-bottom: 0.4em !important;
+}
+
+/* ============================================
+   체크박스 - 작게
+   ============================================ */
+
+input[type="checkbox"],
+.task-list-item-checkbox {
+  width: 14px !important;
+  height: 14px !important;
+  transform: scale(0.9) !important;
+  margin-right: 6px !important;
+}
+
+/* ============================================
+   테이블 - 컴팩트한 세로 간격 (별도 유지)
+   ============================================ */
+
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border: none !important;
+  background: none !important;
+  font-family: var(--font-text) !important;
+  font-size: var(--font-size) !important;
+  margin: 1.5em 0 !important;
+  letter-spacing: 0.06em !important;
+  table-layout: auto !important;
+}
+
+/* 에딧 모드 테이블 — 컨테이너 + 테이블 폭 강제 */
+.markdown-source-view.mod-cm6 .cm-embed-block.cm-table-widget {
+  width: 100% !important;
+}
+.markdown-source-view.mod-cm6 .cm-embed-block.cm-table-widget table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+/* Dataview 테이블 — 전체 폭 사용, 내용 기반 컬럼 폭 */
+.dataview.table-view-table {
+  width: 100% !important;
+  table-layout: auto !important;
+}
+
+.dataview.table-view-table td {
+  white-space: normal !important;
+  word-break: keep-all !important;
+}
+
+thead {
+  background: none !important;
+  border: none !important;
+}
+
+/* 헤더 - 진한 흰색 밑줄 */
+th {
+  background: none !important;
+  border: none !important;
+  border-bottom: 1px solid #888 !important;
+  padding: 4px 16px !important;
+  text-align: left !important;
+  font-weight: 400 !important;
+  color: #bbb !important;
+  font-family: var(--font-text) !important;
+  font-size: var(--font-size) !important;
+  letter-spacing: 0.06em !important;
+  line-height: 1.6 !important;
+}
+
+tbody {
+  background: none !important;
+}
+
+tr {
+  background: none !important;
+  border: none !important;
+}
+
+tr:hover {
+  background: none !important;
+}
+
+/* 셀 - 컴팩트한 패딩 */
+td {
+  background: none !important;
+  border: none !important;
+  border-bottom: 1px solid #333 !important;
+  padding: 4px 16px !important;
+  font-weight: 400 !important;
+  color: #ccc !important;
+  font-family: var(--font-text) !important;
+  font-size: var(--font-size) !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0.06em !important;
+}
+
+/* ============================================
+   코드 블록 - 줄무늬 제거
+   ============================================ */
+
+pre {
+  background: #1a1a1a !important;
+  border: 1px solid #333 !important;
+  border-radius: 6px !important;
+  padding: 14px !important;
+  margin: 1.5em 0 !important;
+  font-family: var(--font-monospace) !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+}
+
+pre code {
+  background: none !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+pre code span {
+  background: none !important;
+  border: none !important;
+}
+
+pre * {
+  background: none !important;
+  border: none !important;
+}
+
+/* 인라인 코드 */
+code {
+  font-family: var(--font-monospace) !important;
+  font-size: 14px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  padding: 3px 7px !important;
+  border-radius: 4px !important;
+  color: #bbb !important;
+}
+
+/* ============================================
+   인용문
+   ============================================ */
+
+blockquote {
+  font-family: "Bookk Gothic", "북크고딕", sans-serif !important;
+  font-size: 15px !important;
+  color: #888 !important;
+  border-left: 2px solid var(--interactive-accent) !important;
+  font-style: normal !important;
+  line-height: 2 !important;
+  margin: 1.5em 0 !important;
+  letter-spacing: 0.06em !important;
+}
+
+/* ============================================
+   강조 - 볼드 약하게
+   ============================================ */
+
+strong {
+  font-weight: 500 !important;
+  color: #fff !important;
+}
+
+/* ============================================
+   링크
+   ============================================ */
+
+a {
+  color: #c96442 !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+.internal-link {
+  color: #a78bfa !important;
+}
+
+/* ============================================
+   태그
+   ============================================ */
+
+.tag {
+  background: rgba(168, 139, 250, 0.2) !important;
+  color: #a78bfa !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+}
+
+/* ============================================
+   이미지
+   ============================================ */
+
+img {
+  display: block !important;
+  margin: 1.5em auto !important;
+}
+
+/* ============================================
+   수평선
+   ============================================ */
+
+hr {
+  margin: 2.5em 0 !important;
+  border: none !important;
+  border-top: 1px solid #333 !important;
+}
+
+/* ============================================
+   속성 (Metadata) - 컴팩트하게
+   ============================================ */
+
+.metadata-container {
+  margin-bottom: 2em !important;
+  --metadata-gap: 0px !important;
+  --metadata-padding: 0px !important;
+  --metadata-label-width: 8em !important;
+  --metadata-input-height: 24px !important;
+}
+
+.metadata-content {
+  gap: 0px !important;
+  padding: 0 !important;
+}
+
+.metadata-property {
+  padding: 0px 0 !important;
+  margin: 0 !important;
+  min-height: 24px !important;
+}
+
+.metadata-property-key-input,
+.metadata-property-value-input {
+  min-height: 24px !important;
+  height: 24px !important;
+  /* Force fixed height */
+  font-size: 13px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.metadata-property-key,
+.metadata-property-value {
+  padding: 0px 0 !important;
+  min-height: 24px !important;
+}
+
+.multi-select-container {
+  min-height: 24px !important;
+  padding: 0 !important;
+}
+
+.multi-select-pill {
+  height: 20px !important;
+  font-size: 12px !important;
+  margin: 1px !important;
+}
+
+/* ============================================
+   하이라이트 (==) 스타일 커스텀
+   ============================================ */
+mark,
+.markdown-rendered mark,
+.markdown-preview-view mark,
+.cm-s-obsidian .cm-highlight {
+  background-color: rgba(201, 100, 66, 0.4) !important;
+  color: inherit !important;
+  padding: 0.35em 0.2em !important;
+  border-radius: 3px !important;
+  line-height: inherit !important;
+}
